@@ -41,11 +41,17 @@ public class FarmPartnerController {
 		return farmPartnerService.getAllFarmPartners();
 	}
 	
-	@PutMapping("/updatePartner")
-	public FarmPartner updateEmp(@RequestBody FarmPartnerDTO farmPartnerDTO) {
-		
-		return farmPartnerService.updateFarmPartner(farmPartnerDTO);
-	}
+//	@PutMapping("/updatePartner")
+//	public FarmPartner updateEmp(@RequestBody FarmPartnerDTO farmPartnerDTO) {
+//		
+//		return farmPartnerService.updateFarmPartner(farmPartnerDTO);
+//	}
+	
+    @PutMapping("/updatePartner/{id}")
+    public FarmPartner updatePartner(@PathVariable Long id, @RequestBody FarmPartnerDTO farmPartnerDTO) {
+        farmPartnerDTO.setPartnerId(id);  // Ensure the ID is set from the path variable
+        return farmPartnerService.updateFarmPartner(farmPartnerDTO);
+    }
 	
 	@DeleteMapping("/deletebyid/{partnerId}")
 	public String deleteVehicleById(@PathVariable Long partnerId) {

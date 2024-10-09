@@ -12,7 +12,7 @@
 	<artifactId>customerApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>customerApi</name>
-	<description>Spring Project Microservice for Customer Service</description>
+	<description>This is a Microservice for Customer API</description>
 	<url/>
 	<licenses>
 		<license/>
