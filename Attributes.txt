@@ -1,0 +1,71 @@
+Explanation of Entities and Relationships
+
+-----------------------------------------------(PARTH)-----------------------------------------------------------------------
+
+1. FarmPartner
+
+		Attributes:
+		partner_id (Primary Key)
+		name
+		location
+		contact_info
+
+
+2. Product
+
+		Attributes:
+		product_id (Primary Key)
+		name
+		type (fruit, vegetable, pulse)
+		price
+		available_quantity
+		farm_partner_id (Foreign Key)
+
+
+3. Customer
+
+		Attributes:
+		customer_id (Primary Key)
+		name
+		email
+		password (hashed)
+		subscription_type (weekly/monthly)
+		contact_info
+
+-----------------------------------------------(PARTH)-----------------------------------------------------------------------
+
+
+
+
+-----------------------------------------------(SRAVANI)-----------------------------------------------------------------------
+
+4. Order
+
+		Attributes:
+		order_id (Primary Key)
+		customer_id (Foreign Key)
+		order_date
+		status (pending, completed, canceled)
+		total_amount
+
+
+5. OrderItem
+
+		Attributes:
+		order_item_id (Primary Key)
+		order_id (Foreign Key)
+		product_id (Foreign Key)
+		quantity
+		price
+
+
+6. Payment
+
+		Attributes:
+		payment_id (Primary Key)
+		order_id (Foreign Key)
+		amount
+		payment_date
+		payment_status (successful, failed)
+		
+-----------------------------------------------(SRAVANI)-----------------------------------------------------------------------
