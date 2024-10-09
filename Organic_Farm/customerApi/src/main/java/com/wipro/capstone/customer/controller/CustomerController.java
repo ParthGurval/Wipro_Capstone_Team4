@@ -21,7 +21,7 @@ public class CustomerController {
         return customerService.createCustomer(customerDTO);
     }
 
-    @GetMapping(value="getCustById/{id}")
+    @GetMapping(value="/getCustById/{id}")
     public CustomerDTO getCustomerById(@PathVariable Long id) {
         // Return the customer if found, or handle null appropriately
         return customerService.getCustomerById(id);
@@ -33,13 +33,13 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
-    @PutMapping("updateCustomer/{id}")
+    @PutMapping(value="/updateCustomer/{id}")
     public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
         // Update customer based on id
         return customerService.updateCustomer(id, customerDTO);
     }
 
-    @DeleteMapping("deleteById/{id}")
+    @DeleteMapping(value="/deleteById/{id}")
     public String deleteCustomer(@PathVariable Long id) {
         // Perform delete operation
         customerService.deleteCustomer(id);
