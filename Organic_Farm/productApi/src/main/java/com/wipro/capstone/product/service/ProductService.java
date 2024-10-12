@@ -28,7 +28,7 @@ public class ProductService implements IProductService {
 	        product.setType(ProductType.valueOf(productDTO.getType().toUpperCase())); // Ensure type is capitalized
 	        product.setPrice(productDTO.getPrice());
 	        product.setAvailableQuantity(productDTO.getAvailableQuantity());
-	        product.setFarmPartnerId(productDTO.getFarmPartnerId());
+	        product.setPartnerId(productDTO.getPartnerId());
 
 	        productRepository.save(product); // Save product
 	        productDTO.setProductId(product.getProductId()); // Set ID in DTO
@@ -52,7 +52,7 @@ public class ProductService implements IProductService {
             dto.setType(product.getType().name());
             dto.setPrice(product.getPrice());
             dto.setAvailableQuantity(product.getAvailableQuantity());
-            dto.setFarmPartnerId(product.getFarmPartnerId());
+            dto.setPartnerId(product.getPartnerId());
             return dto; // Return found DTO
             
         } 
@@ -75,7 +75,7 @@ public class ProductService implements IProductService {
             dto.setType(product.getType().name());
             dto.setPrice(product.getPrice());
             dto.setAvailableQuantity(product.getAvailableQuantity());
-            dto.setFarmPartnerId(product.getFarmPartnerId());
+            dto.setPartnerId(product.getPartnerId());
             productDTOs.add(dto); // Add DTO to the list
         }
 
@@ -99,7 +99,7 @@ public class ProductService implements IProductService {
 	        existingProduct.setType(ProductType.valueOf(productDTO.getType().toUpperCase()));
 	        existingProduct.setPrice(productDTO.getPrice());
 	        existingProduct.setAvailableQuantity(productDTO.getAvailableQuantity());
-	        existingProduct.setFarmPartnerId(productDTO.getFarmPartnerId());
+	        existingProduct.setPartnerId(productDTO.getPartnerId());
 
 	        // Save the updated entity
 	        productRepository.save(existingProduct); // Save the existing product

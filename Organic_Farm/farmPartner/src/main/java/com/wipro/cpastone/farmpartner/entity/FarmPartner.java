@@ -15,6 +15,8 @@ public class FarmPartner {
 	    private Long partnerId;
 
 	    private String name;
+	    
+	    private String email;
 
 	    private String location;
 
@@ -25,10 +27,11 @@ public class FarmPartner {
 			// TODO Auto-generated constructor stub
 		}
 
-		public FarmPartner(Long partnerId, String name, String location, String contactInfo) {
+		public FarmPartner(Long partnerId, String name, String email, String location, String contactInfo) {
 			super();
 			this.partnerId = partnerId;
 			this.name = name;
+			this.email = email;
 			this.location = location;
 			this.contactInfo = contactInfo;
 		}
@@ -49,6 +52,14 @@ public class FarmPartner {
 			this.name = name;
 		}
 
+		public String getEmail() {
+			return email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
 		public String getLocation() {
 			return location;
 		}
@@ -67,9 +78,10 @@ public class FarmPartner {
 
 		@Override
 		public String toString() {
-			return "FarmPartner [partnerId=" + partnerId + ", name=" + name + ", location=" + location
-					+ ", contactInfo=" + contactInfo + "]";
+			return "FarmPartner [partnerId=" + partnerId + ", name=" + name + ", email=" + email + ", location="
+					+ location + ", contactInfo=" + contactInfo + "]";
 		}
-	    
+
+		
 	    
 }

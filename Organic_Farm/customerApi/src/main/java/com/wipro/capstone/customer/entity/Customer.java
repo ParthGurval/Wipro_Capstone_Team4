@@ -19,6 +19,7 @@ public class Customer {
     private String password; // Store the hashed password
     private String subscriptionType; // Weekly/Monthly
     private String contactInfo;
+    private String address;
     
 	public Customer() {
 		super();
@@ -26,7 +27,7 @@ public class Customer {
 	}
 
 	public Customer(Long customerId, String name, String email, String password, String subscriptionType,
-			String contactInfo) {
+			String contactInfo, String address) {
 		super();
 		this.customerId = customerId;
 		this.name = name;
@@ -34,6 +35,7 @@ public class Customer {
 		this.password = password;
 		this.subscriptionType = subscriptionType;
 		this.contactInfo = contactInfo;
+		this.address = address;
 	}
 
 	public Long getCustomerId() {
@@ -84,12 +86,22 @@ public class Customer {
 		this.contactInfo = contactInfo;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", subscriptionType=" + subscriptionType + ", contactInfo=" + contactInfo + "]";
+				+ ", subscriptionType=" + subscriptionType + ", contactInfo=" + contactInfo + ", address=" + address
+				+ "]";
 	}
-
     
     
+	
+	
 }

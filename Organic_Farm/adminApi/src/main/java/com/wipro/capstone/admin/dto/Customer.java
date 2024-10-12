@@ -1,6 +1,6 @@
-package com.wipro.capstone.customer.dto;
+package com.wipro.capstone.admin.dto;
 
-public class CustomerDTO {
+public class Customer {
 
 	private Long customerId;
     private String name;
@@ -10,12 +10,12 @@ public class CustomerDTO {
     private String contactInfo;
     private String address;
     
-	public CustomerDTO() {
+	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public CustomerDTO(Long customerId, String name, String email, String password, String subscriptionType,
+	public Customer(Long customerId, String name, String email, String password, String subscriptionType,
 			String contactInfo, String address) {
 		super();
 		this.customerId = customerId;

@@ -1,6 +1,6 @@
-package com.wipro.capstone.product.dto;
+package com.wipro.cpastone.farmpartner.dto;
 
-public class ProductDTO {
+public class Product {
 
 	 	private Long productId;
 	    private String name;
@@ -9,12 +9,12 @@ public class ProductDTO {
 	    private Integer availableQuantity;
 	    private Long partnerId;
 		
-	    public ProductDTO() {
+	    public Product() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public ProductDTO(Long productId, String name, String type, Double price, Integer availableQuantity,
+		public Product(Long productId, String name, String type, Double price, Integer availableQuantity,
 				Long partnerId) {
 			super();
 			this.productId = productId;

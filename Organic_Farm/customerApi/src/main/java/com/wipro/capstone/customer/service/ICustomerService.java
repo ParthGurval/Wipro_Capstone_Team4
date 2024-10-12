@@ -3,6 +3,7 @@ package com.wipro.capstone.customer.service;
 import java.util.List;
 
 import com.wipro.capstone.customer.dto.CustomerDTO;
+import com.wipro.capstone.customer.entity.Customer;
 
 public interface ICustomerService {
 
@@ -12,7 +13,7 @@ public interface ICustomerService {
     
     public List<CustomerDTO> getAllCustomers();
     
-    public CustomerDTO updateCustomer(Long id, CustomerDTO customerDTO);
+    public Customer updateCustomer(CustomerDTO customerDTO);
     
-    public void deleteCustomer(Long id);
+    public String deleteCustomer(Long customerId);
 }

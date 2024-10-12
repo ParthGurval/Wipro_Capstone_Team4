@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.wipro.capstone.customer.dto.CustomerDTO;
 import com.wipro.capstone.customer.entity.Customer;
+import com.wipro.capstone.customer.exception.ResourceNotFoundException;
 import com.wipro.capstone.customer.repository.CustomerRepository;
 
 @Service
@@ -25,7 +26,8 @@ public class CustomerServiceImpl implements ICustomerService {
         customer.setPassword(customerDTO.getPassword()); // Assume password is already hashed
         customer.setSubscriptionType(customerDTO.getSubscriptionType());
         customer.setContactInfo(customerDTO.getContactInfo());
-
+        customer.setAddress(customerDTO.getAddress());
+        
         Customer savedCustomer = customerRepository.save(customer);
         customerDTO.setCustomerId(savedCustomer.getCustomerId());
 
@@ -35,11 +37,25 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public CustomerDTO getCustomerById(Long id) {
 		// TODO Auto-generated method stub
-		 Customer customer = customerRepository.findById(id).orElse(null);
-	        if (customer != null) {
-	            return convertEntityToDTO(customer);
-	        }
-	        return null;
+//		 Customer customer = customerRepository.findById(id).orElse(null);
+//	        if (customer != null) {
+//	            return convertEntityToDTO(customer);
+//	        }
+//	        return null;
+		
+		Customer customer = customerRepository.findById(id).orElse(null);
+		
+		CustomerDTO custmoerDto = new CustomerDTO();
+		
+		custmoerDto.setCustomerId(customer.getCustomerId());
+		custmoerDto.setName(customer.getName());
+		custmoerDto.setEmail(customer.getEmail());
+		custmoerDto.setPassword(customer.getPassword());
+		custmoerDto.setSubscriptionType(customer.getSubscriptionType());
+		custmoerDto.setContactInfo(customer.getContactInfo());
+		custmoerDto.setAddress(customer.getAddress());
+		
+		return custmoerDto;
 	}
 
 	@Override
@@ -50,26 +66,48 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public CustomerDTO updateCustomer(Long id, CustomerDTO customerDTO) {
+	public Customer updateCustomer(CustomerDTO customerDTO) {
 		// TODO Auto-generated method stub
-		Customer customer = customerRepository.findById(id).orElse(null);
-        if (customer != null) {
-            customer.setName(customerDTO.getName());
-            customer.setEmail(customerDTO.getEmail());
-            customer.setPassword(customerDTO.getPassword());
-            customer.setSubscriptionType(customerDTO.getSubscriptionType());
-            customer.setContactInfo(customerDTO.getContactInfo());
+//		Customer customer = customerRepository.findById(id).orElse(null);
+//        if (customer != null) {
+//            customer.setName(customerDTO.getName());
+//            customer.setEmail(customerDTO.getEmail());
+//            customer.setPassword(customerDTO.getPassword());
+//            customer.setSubscriptionType(customerDTO.getSubscriptionType());
+//            customer.setContactInfo(customerDTO.getContactInfo());
+//            customer.setAddress(customerDTO.getAddress());
+//            
+//            Customer updatedCustomer = customerRepository.save(customer);
+//            return convertEntityToDTO(updatedCustomer);
+//        }
+//        return null;
+        
+	    Long customerId = customerDTO.getCustomerId();
+	    if (customerId == null) {
+	        throw new IllegalArgumentException("Customer ID must not be null for update.");
+	    }
 
-            Customer updatedCustomer = customerRepository.save(customer);
-            return convertEntityToDTO(updatedCustomer);
-        }
-        return null;
+	    // Fetch the existing FarmPartner
+	    Customer existingCustomer = customerRepository.findById(customerId)
+	            .orElseThrow(() -> new ResourceNotFoundException("Customer not found with ID: " + customerId));
+
+	    // Update the fields
+	    existingCustomer.setName(customerDTO.getName());
+	    existingCustomer.setEmail(customerDTO.getEmail());
+	    existingCustomer.setPassword(customerDTO.getPassword());
+	    existingCustomer.setSubscriptionType(customerDTO.getSubscriptionType());
+	    existingCustomer.setContactInfo(customerDTO.getContactInfo());
+	    existingCustomer.setAddress(customerDTO.getAddress());
+	    // Save the updated entity
+	    return customerRepository.save(existingCustomer);
 	}
 
 	@Override
-	public void deleteCustomer(Long id) {
+	public String deleteCustomer(Long customerId) {
 		// TODO Auto-generated method stub
-		 customerRepository.deleteById(id);
+		customerRepository.deleteById(customerId);
+
+		return "Record Deleted For Customer ID: " + customerId;
 	}
 
 	private CustomerDTO convertEntityToDTO(Customer customer) {
@@ -80,6 +118,7 @@ public class CustomerServiceImpl implements ICustomerService {
         dto.setPassword(customer.getPassword());
         dto.setSubscriptionType(customer.getSubscriptionType());
         dto.setContactInfo(customer.getContactInfo());
+        dto.setAddress(customer.getAddress());
         return dto;
     }
 }

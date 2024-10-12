@@ -3,9 +3,17 @@ package com.wipro.capstone.customer.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.wipro.capstone.customer.dto.CustomerDTO;
+import com.wipro.capstone.customer.entity.Customer;
 import com.wipro.capstone.customer.service.ICustomerService;
 
 @RestController
@@ -33,16 +41,21 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
-    @PutMapping(value="/updateCustomer/{id}")
-    public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
-        // Update customer based on id
-        return customerService.updateCustomer(id, customerDTO);
+//    @PutMapping("/updateCustomer/{id}")
+//    public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
+//        // Update customer based on id
+//        return customerService.updateCustomer(id, customerDTO);
+//    }
+    
+    @PutMapping("/updateCustomer/{id}")
+    public Customer updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
+    	customerDTO.setCustomerId(id);  // Ensure the ID is set from the path variable
+        return customerService.updateCustomer(customerDTO);
     }
 
-    @DeleteMapping(value="/deleteById/{id}")
-    public String deleteCustomer(@PathVariable Long id) {
+    @DeleteMapping("/deleteById/{customerId}")
+    public String deleteCustomer(@PathVariable Long customerId) {
         // Perform delete operation
-        customerService.deleteCustomer(id);
-        return "Customer with ID: " + id + " deleted successfully.";
+    	return customerService.deleteCustomer(customerId);
     }
 }

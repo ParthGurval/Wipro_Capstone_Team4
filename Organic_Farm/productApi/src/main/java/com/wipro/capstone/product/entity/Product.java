@@ -27,7 +27,7 @@ public class Product {
     private Integer availableQuantity;
 
     @Column(name = "farm_partner_id")
-    private Long farmPartnerId;
+    private Long partnerId;
 
 	public Product() {
 		super();
@@ -35,14 +35,14 @@ public class Product {
 	}
 
 	public Product(Long productId, String name, ProductType type, Double price, Integer availableQuantity,
-			Long farmPartnerId) {
+			Long partnerId) {
 		super();
 		this.productId = productId;
 		this.name = name;
 		this.type = type;
 		this.price = price;
 		this.availableQuantity = availableQuantity;
-		this.farmPartnerId = farmPartnerId;
+		this.partnerId = partnerId;
 	}
 
 	public Long getProductId() {
@@ -85,19 +85,20 @@ public class Product {
 		this.availableQuantity = availableQuantity;
 	}
 
-	public Long getFarmPartnerId() {
-		return farmPartnerId;
+	public Long getPartnerId() {
+		return partnerId;
 	}
 
-	public void setFarmPartnerId(Long farmPartnerId) {
-		this.farmPartnerId = farmPartnerId;
+	public void setPartnerId(Long partnerId) {
+		this.partnerId = partnerId;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", name=" + name + ", price=" + price + ", availableQuantity="
-				+ availableQuantity + ", farmPartnerId=" + farmPartnerId + "]";
+		return "Product [productId=" + productId + ", name=" + name + ", type=" + type + ", price=" + price
+				+ ", availableQuantity=" + availableQuantity + ", partnerId=" + partnerId + "]";
 	}
-    
+
+	    
     
 }

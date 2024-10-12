@@ -1,6 +1,6 @@
-package com.wipro.cpastone.farmpartner.dto;
+package com.wipro.capstone.admin.dto;
 
-public class FarmPartnerDTO {
+public class FarmPartner {
 
 	private Long partnerId;
     private String name;
@@ -8,12 +8,12 @@ public class FarmPartnerDTO {
     private String location;
     private String contactInfo;
     
-	public FarmPartnerDTO() {
+	public FarmPartner() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public FarmPartnerDTO(Long partnerId, String name, String email, String location, String contactInfo) {
+	public FarmPartner(Long partnerId, String name, String email, String location, String contactInfo) {
 		super();
 		this.partnerId = partnerId;
 		this.name = name;
