@@ -4,6 +4,9 @@ package com.wipro.capstone.order.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.wipro.capstone.order.dto.CustomerOrderVO;
+import com.wipro.capstone.order.dto.FarmPartnerOrderVO;
 import com.wipro.capstone.order.dto.OrderDTO;
 import com.wipro.capstone.order.entity.Order;
 import com.wipro.capstone.order.entity.OrderStatus;
@@ -50,5 +53,31 @@ public class OrderController {
     @DeleteMapping("/deletebyid/{order_id}")
     public String deleteOrderById(@PathVariable Long order_id) {
         return orderService.deleteOrder(order_id);
+    }
+    
+    
+    //Access Order by Customer ID
+    @GetMapping("/customer/{customerId}")
+    public List<OrderDTO> getOrdersByCustomerId(@PathVariable Long customerId) {
+        return orderService.getOrdersByCustomerId(customerId);
+    }
+    
+    //Here we get all the customer info with help of irderId
+    @GetMapping("/get/customer-oder/{order_id}")
+    public CustomerOrderVO getCustByOrder(@PathVariable Long order_id) {
+    	
+    	return orderService.getCustomerByOrder(order_id);
+    }
+    
+    @GetMapping("/get/farmPartner-order/{order_id}")
+    public FarmPartnerOrderVO getPartnerByOrder(@PathVariable Long order_id) {
+    	
+    	return orderService.getFarmPartnerByOrder(order_id);
+    }
+    
+    @GetMapping("/farmPartner/{partnerId}")
+    public List<OrderDTO> getByFarmPartnerId(@PathVariable Long partnerId){
+    	
+    	return orderService.getOrderByFarmPartnerId(partnerId);
     }
 }

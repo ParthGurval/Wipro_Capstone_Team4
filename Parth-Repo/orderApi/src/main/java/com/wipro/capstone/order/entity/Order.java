@@ -19,7 +19,9 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long order_id; // Primary key
 
-    private Long customer_id; // Foreign key (relationship to customer)
+    private Long customerId; // Foreign key (relationship to customer)
+    
+    private Long partnerId;
 
     private LocalDate order_date; // Order date
 
@@ -28,63 +30,76 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status; // Enum for order status
 
-    public Order() {
-        super();
-    }
+	public Order() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public Order(Long order_id, Long customer_id, LocalDate order_date, Double total_amount, OrderStatus status) {
-        super();
-        this.order_id = order_id;
-        this.customer_id = customer_id;
-        this.order_date = order_date;
-        this.total_amount = total_amount;
-        this.status = status;
-    }
+	public Order(Long order_id, Long customerId, Long partnerId, LocalDate order_date, Double total_amount,
+			OrderStatus status) {
+		super();
+		this.order_id = order_id;
+		this.customerId = customerId;
+		this.partnerId = partnerId;
+		this.order_date = order_date;
+		this.total_amount = total_amount;
+		this.status = status;
+	}
 
-    // Getters and Setters
-    public Long getOrder_id() {
-        return order_id;
-    }
+	public Long getOrder_id() {
+		return order_id;
+	}
 
-    public void setOrder_id(Long order_id) {
-        this.order_id = order_id;
-    }
+	public void setOrder_id(Long order_id) {
+		this.order_id = order_id;
+	}
 
-    public Long getCustomer_id() {
-        return customer_id;
-    }
+	public Long getCustomerId() {
+		return customerId;
+	}
 
-    public void setCustomer_id(Long customer_id) {
-        this.customer_id = customer_id;
-    }
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
 
-    public LocalDate getOrder_date() {
-        return order_date;
-    }
+	public Long getPartnerId() {
+		return partnerId;
+	}
 
-    public void setOrder_date(LocalDate order_date) {
-        this.order_date = order_date;
-    }
+	public void setPartnerId(Long partnerId) {
+		this.partnerId = partnerId;
+	}
 
-    public Double getTotal_amount() {
-        return total_amount;
-    }
+	public LocalDate getOrder_date() {
+		return order_date;
+	}
 
-    public void setTotal_amount(Double total_amount) {
-        this.total_amount = total_amount;
-    }
+	public void setOrder_date(LocalDate order_date) {
+		this.order_date = order_date;
+	}
 
-    public OrderStatus getStatus() {
-        return status;
-    }
+	public Double getTotal_amount() {
+		return total_amount;
+	}
 
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
+	public void setTotal_amount(Double total_amount) {
+		this.total_amount = total_amount;
+	}
 
-    @Override
-    public String toString() {
-        return "Order [order_id=" + order_id + ", customer_id=" + customer_id + ", order_date=" + order_date
-                + ", total_amount=" + total_amount + ", status=" + status + "]";
-    }
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [order_id=" + order_id + ", customerId=" + customerId + ", partnerId=" + partnerId
+				+ ", order_date=" + order_date + ", total_amount=" + total_amount + ", status=" + status + "]";
+	}
+
+	
+    
 }

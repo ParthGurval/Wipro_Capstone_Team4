@@ -37,5 +37,7 @@ public class CustomerOrderVO {
     public String toString() {
         return "CustomerOrderVO [customer=" + customer + ", order=" + order + "]";
     }
+    
+    
 }
 

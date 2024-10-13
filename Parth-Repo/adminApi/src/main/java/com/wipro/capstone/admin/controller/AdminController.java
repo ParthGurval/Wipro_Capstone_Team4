@@ -3,26 +3,21 @@ package com.wipro.capstone.admin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.wipro.capstone.admin.dto.AdminDTO;
 import com.wipro.capstone.admin.dto.Customer;
+import com.wipro.capstone.admin.dto.FarmPartner;
 import com.wipro.capstone.admin.service.IAdminService;
 
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {
 
-	@Autowired
+    @Autowired
     private IAdminService adminService;
 
+    // Admin CRUD endpoints
     @PostMapping("/createAdmin")
     public AdminDTO createAdmin(@RequestBody AdminDTO adminDTO) {
         return adminService.createAdmin(adminDTO);
@@ -48,14 +43,39 @@ public class AdminController {
         adminService.deleteAdmin(id);
         return "Admin with ID: " + id + " deleted successfully.";
     }
-    
-//    @GetMapping(value="/getCustById/{id}")
-//    public Customer getCustomerById(@PathVariable Long id) {
-//    	return adminService.getCustomerById(id);
-//    }
-    
-    @GetMapping("/getCustById/{id}")
+
+    // Customer management endpoints
+    @GetMapping("/getAllCustomers")
+    public List<Customer> getAllCustomers() {
+        return adminService.getAllCustomers();
+    }
+
+    @GetMapping("/customers/{id}")
     public Customer getCustomerById(@PathVariable Long id) {
         return adminService.getCustomerById(id);
+    }
+
+    @DeleteMapping("/customers/{id}")
+    public String deleteCustomerById(@PathVariable Long id) {
+        adminService.deleteCustomerById(id);
+        return "Customer with ID: " + id + " deleted successfully.";
+    }
+    
+    @GetMapping("/getAllFarmpPartners")
+    public List<FarmPartner> getAllFarmPArtners() {
+    	
+    	return adminService.getAllFarmPartner();
+    }
+    
+    @GetMapping("/getFarmPartById/{id}")
+    public FarmPartner getFarmPartnerById(@PathVariable Long id) {
+    	
+    	return adminService.getFarmPartnerById(id);
+    }
+    
+    @DeleteMapping("/deleteFarmPartById/{id}")
+    public String deleteFarmPartnerById(@PathVariable Long id) {
+    	
+    	return adminService.deleteFarmPartnerById(id);
     }
 }

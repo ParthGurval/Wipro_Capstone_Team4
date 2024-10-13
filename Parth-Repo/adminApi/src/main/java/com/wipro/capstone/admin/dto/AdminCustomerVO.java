@@ -2,7 +2,7 @@ package com.wipro.capstone.admin.dto;
 
 public class AdminCustomerVO {
 
-	private AdminDTO admindto;
+	private AdminDTO admin;
 	
 	private Customer customer;
 
@@ -11,18 +11,18 @@ public class AdminCustomerVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AdminCustomerVO(AdminDTO admindto, Customer customer) {
+	public AdminCustomerVO(AdminDTO admin, Customer customer) {
 		super();
-		this.admindto = admindto;
+		this.admin = admin;
 		this.customer = customer;
 	}
 
-	public AdminDTO getAdmindto() {
-		return admindto;
+	public AdminDTO getAdmin() {
+		return admin;
 	}
 
-	public void setAdmindto(AdminDTO admindto) {
-		this.admindto = admindto;
+	public void setAdmin(AdminDTO admin) {
+		this.admin = admin;
 	}
 
 	public Customer getCustomer() {
@@ -35,8 +35,12 @@ public class AdminCustomerVO {
 
 	@Override
 	public String toString() {
-		return "AdminCustomerVO [admindto=" + admindto + ", customer=" + customer + "]";
+		return "AdminCustomerVO [admin=" + admin + ", customer=" + customer + "]";
 	}
+	
+	
+
+	
 	
 	
 	

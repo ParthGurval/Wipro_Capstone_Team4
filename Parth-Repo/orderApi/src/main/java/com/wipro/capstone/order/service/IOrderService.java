@@ -3,6 +3,8 @@ package com.wipro.capstone.order.service;
 
 import java.util.List;
 
+import com.wipro.capstone.order.dto.CustomerOrderVO;
+import com.wipro.capstone.order.dto.FarmPartnerOrderVO;
 import com.wipro.capstone.order.dto.OrderDTO;
 import com.wipro.capstone.order.entity.Order;
 import com.wipro.capstone.order.entity.OrderStatus; // Add this import for OrderStatus enum
@@ -27,4 +29,13 @@ public interface IOrderService {
     
     // Delete an order by its ID
     public String deleteOrder(Long order_id);
+    
+    public List<OrderDTO> getOrdersByCustomerId(Long customerId);
+    
+    public List<OrderDTO> getOrderByFarmPartnerId(Long partnerId);
+    
+    public CustomerOrderVO getCustomerByOrder(Long order_id);
+    
+    public FarmPartnerOrderVO getFarmPartnerByOrder(Long order_id);
+    
 }

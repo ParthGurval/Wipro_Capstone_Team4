@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wipro.cpastone.farmpartner.dto.FarmPartnerDTO;
+import com.wipro.cpastone.farmpartner.dto.Product;
 import com.wipro.cpastone.farmpartner.entity.FarmPartner;
 import com.wipro.cpastone.farmpartner.service.FarmPartnerService;
 
@@ -58,4 +59,35 @@ public class FarmPartnerController {
 		
 		return farmPartnerService.deleteFarmPartner(partnerId);
 	}
+	
+	@PostMapping("/createProduct")
+	public Product createProduct(@RequestBody Product product) {
+		
+		return farmPartnerService.createProduct(product);
+	}
+	
+	@PutMapping("/updateProduct/{productId}")
+	public Product updateProductById(@PathVariable Long productId, @RequestBody Product product){
+		
+		return farmPartnerService.updateProduct(productId, product);
+	}
+	
+	@GetMapping("/getProductById/{productId}")
+	public Product getProductById(@PathVariable Long productId) {
+		
+		return farmPartnerService.getProductById(productId);
+	}
+	
+	@GetMapping("/getAllProducts")
+	public List<Product> getAllProduct(){
+		
+		return farmPartnerService.getAllProduct();
+	}
+	
+	@DeleteMapping("/deleteProduct/{productId}")
+	public String deleteProductById(@PathVariable Long productId) {
+		
+		return farmPartnerService.deleteProductById(productId);
+	}
+	
 }

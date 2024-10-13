@@ -8,31 +8,28 @@ import com.wipro.capstone.admin.dto.FarmPartner;
 
 public interface IAdminService {
 
-	AdminDTO createAdmin(AdminDTO adminDTO);
-	
+    // Admin operations
+    AdminDTO createAdmin(AdminDTO adminDTO);
+
     List<AdminDTO> getAllAdmins();
-    
+
     AdminDTO getAdminById(Long id);
-    
+
     AdminDTO updateAdmin(Long id, AdminDTO adminDTO);
-    
+
     void deleteAdmin(Long id);
-    
-    
-    
+
     // Customer management
     List<Customer> getAllCustomers();
-    
-    Customer getCustomerById(Long id);
-    
-    void deleteCustomerById(Long id);
 
-    // FarmPartner management
-    List<FarmPartner> getAllFarmPartners();
+    Customer getCustomerById(Long id);
+
+    void deleteCustomerById(Long id);
+    
+    
+    List<FarmPartner> getAllFarmPartner();
     
     FarmPartner getFarmPartnerById(Long id);
     
-    void deleteFarmPartnerById(Long id);
+    String deleteFarmPartnerById(Long id);
 }
-
-
