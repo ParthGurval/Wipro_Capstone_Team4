@@ -1,0 +1,34 @@
+----------------------------------
+https://developer.paypal.com/tools/sandbox/card-testing/
+https://www.teloz.com/blog/us-phone-number-format-with-country-code/
+https://www.bestrandoms.com/random-address-in-us
+
+-----------------------------------
+mock card details
+347050431853230 cno
+05/2029		expiry date
+2919		cvv
+https://developer.paypal.com/tools/sandbox/card-testing/
+------------------
+Street:  2322 Saint Marys Avenue
+
+City:  Watertown
+
+State/province/area:   New York
+
+Phone number:  315-779-4074
+
+Zip code:  13601
+
+Country calling code:  +1
+
+Country:  United States
+
+https://www.bestrandoms.com/random-address-in-us
+------------------------------------------------
+Type 			Example 
+Landline 	+1 (212) 555-1234
+Mobile 		+1 (310) 555-5678
+Toll-free	+1 (800) 555-9012
+https://www.teloz.com/blog/us-phone-number-format-with-country-code/
+-------------------------------------------------
