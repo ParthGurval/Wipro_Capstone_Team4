@@ -1,0 +1,69 @@
+<p>partern-sign-up works!</p>
+<h1>Welcome To FarmPartner Sign Up Page</h1>
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-center">FarmPartner Sign Up</h3>
+            <form #signupForm="ngForm" (ngSubmit)="onSignupSubmit()">
+              
+              <!-- Name Input -->
+              <div class="form-group mb-3">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" name="name" required ngModel>
+                <div *ngIf="signupForm.submitted && !signupForm.controls['name']?.valid" class="text-danger">
+                    Name is required.
+                  </div>
+              </div>
+  
+              <!-- Email Input -->
+              <div class="form-group mb-3">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" name="email" required ngModel>
+                <div *ngIf="signupForm.submitted && !signupForm.controls['email']?.valid" class="text-danger">
+                    Email is required.
+                  </div>
+              </div>
+  
+              <!-- Password Input -->
+              <div class="form-group mb-3">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" name="password" required ngModel>
+                <div *ngIf="signupForm.submitted && !signupForm.controls['password']?.valid" class="text-danger">
+                    Password is required.
+                  </div>
+              </div>
+  
+              <!-- Address Input -->
+              <div class="form-group mb-3">
+                <label for="address">Address</label>
+                <textarea id="address" class="form-control" name="address" required ngModel></textarea>
+                <div *ngIf="signupForm.submitted && !signupForm.controls['address']?.valid" class="text-danger">
+                    Address is required.
+                  </div>
+              </div>
+
+                <!-- Contact Info Input -->
+                <div class="form-group mb-3">
+                    <label for="contactInfo">Contact Info</label>
+                    <input type="text" id="contactInfo" class="form-control" name="contactInfo" required ngModel>
+                    <div *ngIf="signupForm.submitted && !signupForm.controls['contactInfo']?.valid" class="text-danger">
+                            Contact Info is required.
+                    </div>
+                </div>
+  
+              <!-- Buttons -->
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                <button type="button" class="btn btn-secondary btn-block" (click)="onClear()">Clear All</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

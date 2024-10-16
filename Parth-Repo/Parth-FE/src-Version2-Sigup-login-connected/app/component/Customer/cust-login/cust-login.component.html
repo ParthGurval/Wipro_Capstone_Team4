@@ -1,0 +1,65 @@
+<p>cust-login works!</p><br>
+
+<!-- 
+<button (click)="navigateToSignUp()">Sign up as Customer</button>
+<button (click)="navigateToAdmin()">Login As Admin</button>
+<button (click)="navigateToFarmPartner()">Login As FarmPartner</button> -->
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-center">Customer Login</h3>
+            <form #loginForm="ngForm" (ngSubmit)="onLoginSubmit()">
+              
+              <!-- Email Input -->
+              <div class="form-group mb-3">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" name="email" required ngModel>
+                <div *ngIf="loginForm.submitted && !loginForm.controls['email']?.valid" class="text-danger">
+                    Email is required.
+                </div>
+              </div>
+  
+              <!-- Password Input -->
+              <div class="form-group mb-3">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" name="password" required ngModel>
+                <div *ngIf="loginForm.submitted && !loginForm.controls['password']?.valid" class="text-danger">
+                    Password is required.
+                  </div>
+              </div>
+  
+              <!-- Buttons -->
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <button type="button" class="btn btn-secondary btn-block" (click)="navigateToSignup()">Sign Up</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin and FarmPartner Buttons in a box -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-center">Other Logins</h3>
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-info btn-block" (click)="navigateToAdmin()">Admin Login</button>
+              <button type="button" class="btn btn-warning btn-block" (click)="navigateToFarmPartner()">FarmPartner Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
